@@ -34,8 +34,8 @@ $routes->get('/', 'GlobalController::view/home');
 // $routes->match(['get', 'post'], 'register', 'AdminController::register', ['filter' => 'noauth']);
 // $routes->get('profile', 'AdminController::profile', ['filter' => 'auth']);
 $routes->match(['get', 'post'], 'zone51/login', 'AdminController::login', ['filter' => 'noauth']);
-$routes->get('zone51/dashboard', 'Dashboard::index', ['filter' => 'auth']);
-$routes->get('zone51/dashboard/(:any)', 'Dashboard::$1', ['filter' => 'auth']);
+$routes->get('zone51/dashboard', 'DashboardController::index', ['filter' => 'auth']);
+$routes->match(['get', 'post'], 'zone51/dashboard/(:any)', 'DashboardController::$1', ['filter' => 'auth']);
 $routes->get('logout', 'AdminController::logout');
 
 $routes->get('/contact', 'ContactController::index');

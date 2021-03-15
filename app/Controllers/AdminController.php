@@ -1,139 +1,11 @@
 <?php namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\PlatsModel;
 use App\Models\AdminModel;
 
 
 class AdminController extends BaseController
 {
-    // public function index()
-    // {
-        
-    //     $data = [];
-        
-    //     if($this->request->getMethod() == 'post')
-    //     {
-    //         $rules = 
-    //         [
-    //             'email' => 
-    //             [
-    //                 'rules' => 'required|valid_email',
-    //                 'errors' =>
-    //                 [
-    //                     'required' => 'Merci de renseigner votre adresse mail.',
-    //                     'valid_email' => 'Votre adresse mail semble incorrecte. Merci de bien vouloir vérifier'
-    //                 ]
-    //             ],
-    //             'password' =>
-    //             [
-    //                 'rules' => 'required|validateUser[email,password]',
-    //                 'errors' => 
-    //                 [
-    //                     'required' => 'Veuillez entrer votre mot de passe', 
-    //                     'validateUser' => 'Vos informations de connexion ne correspondent pas',
-    //                 ]
-    //             ]
-    //         ];
-    //         if (!$this->validate($rules)) 
-    //         {
-    //             $data['validation'] = $this->validator;
-    //         } else {
-    //             $model = new AdminModel();
-    //             $user = $model->where('email', $this->request->getVar('email'))
-    //                           ->first();
-    //             $this->setUserSession($user);
-    //             return redirect()->to('/zone51/dashboard');
-
-    //         }
-    //     } 
-    //     echo view('templates/header', $data);
-    //     echo view('admin/connexion');
-    // }
-
-    // private function setUserSession($user){
-    //     $data = [
-    //         'id' => $user['id'],
-    //         'email' => $user['email'],
-    //         'name' => "Gilbert",
-    //         'isLoggedIn' => TRUE,
-    //     ];
-
-    //     session()->set($data);
-    //     return TRUE;
-    // }
-
-    // public function dashboard(){
-
-    //     $data = [];
-    //     echo view('admin/header');
-    //     echo view('admin/dashboard');
-    // }
-
-
-    // public function insert(){
-          
-    //     if($this->request->getMethod() == 'post')
-    //     {
-    //         $rules = 
-    //         [
-    //             'nom' => 
-    //             [
-    //                 'rules' => 'required|is_unique[plats.nom]',
-    //                 'errors' =>
-    //                 [
-    //                     'required' => 'Merci de renseigner votre adresse mail.',
-    //                     'is_unique' => 'Il semblerait que ce plat soit déjà enregistré.'
-    //                 ]
-    //             ],
-    //             'description' => 
-    //             [
-    //                 'rules' => 'max_length[50]',
-    //                 'errors' =>
-    //                 [
-    //                     'max_length' => 'Merci de bien vouloir créer une description plus courte (50 caractères max).',
-    //                 ]
-    //             ],
-    //             'prix' =>
-    //             [
-    //                 'rules' => 'required|decimal',
-    //                 'errors' => 
-    //                 [
-    //                     'required' => 'Veuillez entrer votre mot de passe', 
-    //                     'decimal' => 'Il doit s\'agir d\'un chiffre',
-    //                 ]
-    //             ],
-    //             'menu' =>
-    //             [
-    //                 'rules' => 'decimal',
-    //                 'errors' => 
-    //                 [
-    //                     'decimal' => 'Il doit s\'agir d\'un chiffre',
-    //                 ]
-    //             ]
-    //         ];
-    //         if (!$this->validate($rules)) 
-    //         {
-    //             $data['validation'] = $this->validator;
-    //         } else {
-    //             $model = new PlatsModel();
-    //             $newData = [
-    //                 'nom' => $this->request->getVar('nom'),
-    //                 'description' => $this->request->getVar('description'),
-    //                 'prix' => $this->request->getVar('prix'),
-    //                 'menu' => $this->request->getVar('menu'),
-    //                 // 'commande' => $this->request->getVar('commande'),                    
-    //             ];
-    //             $model->save($newData);
-    //             $session = session();
-    //             $session->setFlashdata('success', 'Insertion réussie');
-    //             return redirect()->to('/zone51/dashboard/insert');
-    //         }
-    //     } 
-    //     echo view('admin/header');
-    //     echo view('admin/insert');
-    // }
-
     public function login()
     {
         $data = [];
@@ -160,7 +32,7 @@ class AdminController extends BaseController
             } else {
                 $model = new AdminModel();
 
-                $user = $model->where('email', $this->request->getVar('email'))
+                $user = $model->where('email', $this->request->getVar('email', FILTER_SANITIZE_STRING))
                     ->first();
 
                 // Stroing session values

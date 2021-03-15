@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\PlatsModel;
 
-class Dashboard extends BaseController
+class DashboardController extends BaseController
 {
     public function index()
     {
@@ -23,13 +24,13 @@ class Dashboard extends BaseController
                     'rules' => 'required|is_unique[plats.nom]',
                     'errors' =>
                     [
-                        'required' => 'Merci de renseigner votre adresse mail.',
+                        'required' => 'Merci de renseigner le nom du plat.',
                         'is_unique' => 'Il semblerait que ce plat soit déjà enregistré.'
                     ]
                 ],
                 'description' => 
                 [
-                    'rules' => 'max_length[50]',
+                    'rules' => 'permit_empty|max_length[50]',
                     'errors' =>
                     [
                         'max_length' => 'Merci de bien vouloir créer une description plus courte (50 caractères max).',
@@ -40,35 +41,53 @@ class Dashboard extends BaseController
                     'rules' => 'required|decimal',
                     'errors' => 
                     [
-                        'required' => 'Veuillez entrer votre mot de passe', 
+                        'required' => 'Veuillez entrer le prix du plat.', 
                         'decimal' => 'Il doit s\'agir d\'un chiffre',
                     ]
                 ],
                 'menu' =>
                 [
-                    'rules' => 'decimal',
+                    'rules' => 'permit_empty|decimal',
                     'errors' => 
                     [
                         'decimal' => 'Il doit s\'agir d\'un chiffre',
                     ]
+                ],
+                'commande' =>
+                [
+                    'rules' => 'required',
+                    'errors' => ['required' => 'Merci d\'indiquer si ce plat est sur commande ou pas'],
                 ]
             ];
             if (!$this->validate($rules)) 
             {
-                $data['validation'] = $this->validator;
-            } else {
+                return view('admin/insert', [
+                    "validation" => $this->validator,
+                ]);
+            } else 
+            {
                 $model = new PlatsModel();
                 $newData = [
-                    'nom' => $this->request->getVar('nom'),
-                    'description' => $this->request->getVar('description'),
-                    'prix' => $this->request->getVar('prix'),
-                    'menu' => $this->request->getVar('menu'),
-                    // 'commande' => $this->request->getVar('commande'),                    
+                    'nom' => $this->request->getVar('nom', FILTER_SANITIZE_STRING),
+                    'prix' => $this->request->getVar('prix', FILTER_SANITIZE_STRING),
+                    'commande' => $this->request->getVar('commande'),                    
                 ];
+                if(empty($_POST['description']))
+                {
+                    $newData['description'] = NULL;
+                } else {
+                    $newData['description'] = $this->request->getVar('description', FILTER_SANITIZE_STRING);
+                };
+                if(empty($_POST['menu']))
+                {
+                    $newData['menu'] = NULL;
+                } else {
+                    $newData['menu'] = $this->request->getVar('menu', FILTER_SANITIZE_STRING);
+                }
                 $model->save($newData);
                 $session = session();
                 $session->setFlashdata('success', 'Insertion réussie');
-                return redirect()->to('/dashboard/insert');
+                return redirect()->to('insert');
             }
         } 
         return view('admin/insert');
