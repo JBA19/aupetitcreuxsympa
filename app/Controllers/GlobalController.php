@@ -17,7 +17,7 @@ class GlobalController extends BaseController
         $data['plats'] = $model->getMenus();
         // var_dump($data['plats']);
         echo view('templates/header', $data);
-        echo view($slug, $data);
-        echo view('templates/footer', $data);
+        echo view($slug);
+        echo view('templates/footer');
     }
 }
