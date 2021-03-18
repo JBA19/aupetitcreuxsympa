@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class PlatsModel extends Model
 {
     protected $table = 'plats';
-    protected $allowedFields = ['nom', 'description', 'prix', 'menu', 'commande'];
+    protected $allowedFields = ['id', 'nom', 'description', 'prix', 'menu', 'commande'];
     protected $beforeInsert = ['beforeInsert'];
     protected $beforeUpdate = ['beforeUpdate'];
 

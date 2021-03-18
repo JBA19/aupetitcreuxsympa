@@ -21,18 +21,4 @@ class ContentModel extends Model
         }
         $db->close();
     }
-
-    public function getMenus()
-    {
-        $db = \Config\Database::connect();
-        $builder = $db->table('plats');
-        $builder->select('nom, description, prix, menu, commande');
-        $query = $builder->get();
-        $row = $query->getResultArray();
-        if (isset($row))
-        {
-            return $row;
-        }
-        $db->close();
-    }
 }

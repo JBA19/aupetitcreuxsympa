@@ -14,7 +14,7 @@ class DashboardController extends BaseController
 
     public function insert()
     {
-          
+        $data = [];
         if($this->request->getMethod() == 'post')
         {
             $rules = 
@@ -95,13 +95,18 @@ class DashboardController extends BaseController
 
     public function update() 
     {
-        if($this->request->getMethod() == 'post')
+
+        $data = [];
+        $primaryKey = 'id';
+        $model = new PlatsModel();
+		if ($this->request->getMethod() == 'post') 
         {
-            $rules = 
+			//let's do the validation here
+			$rules = 
             [
                 'nom' => 
                 [
-                    'rules' => 'required|is_unique[plats.nom]',
+                    'rules' => 'required',
                     'errors' =>
                     [
                         'required' => 'Merci de renseigner le nom du plat.',
@@ -133,51 +138,57 @@ class DashboardController extends BaseController
                         'decimal' => 'Il doit s\'agir d\'un chiffre',
                     ]
                 ],
-                'commande' =>
-                [
-                    'rules' => 'required',
-                    'errors' => ['required' => 'Merci d\'indiquer si ce plat est sur commande ou pas'],
-                ]
+                // 'commande' =>
+                // [
+                //     'rules' => 'required',
+                //     'errors' => ['required' => 'Merci d\'indiquer si ce plat est sur commande ou pas'],
+                // ]
             ];
-            if (!$this->validate($rules)) 
+
+			if (! $this->validate($rules)) 
             {
-                return view('admin/update', [
-                    "validation" => $this->validator,
-                ]);
-            } else 
+				$data['validation'] = $this->validator;
+			} else 
             {
-                $model = new PlatsModel();
-                $newData = [
-                    'nom' => $this->request->getVar('nom', FILTER_SANITIZE_STRING),
-                    'prix' => $this->request->getVar('prix', FILTER_SANITIZE_STRING),
-                    'commande' => $this->request->getVar('commande'),                    
+                $updatedData = [
+                    'id' => $this->request->getPost('plat-id', FILTER_SANITIZE_STRING),
+                    'nom' => $this->request->getPost('nom', FILTER_SANITIZE_STRING),
+                    'prix' => $this->request->getPost('prix', FILTER_SANITIZE_STRING),
+                    // 'commande' => $this->request->getPost('commande'),                    
                 ];
                 if(empty($_POST['description']))
                 {
-                    $newData['description'] = NULL;
-                } else {
-                    $newData['description'] = $this->request->getVar('description', FILTER_SANITIZE_STRING);
+                    $updatedData['description'] = NULL;
+                } else 
+                {
+                    $updatedData['description'] = $this->request->getPost('description', FILTER_SANITIZE_STRING);
                 };
                 if(empty($_POST['menu']))
                 {
-                    $newData['menu'] = NULL;
-                } else {
-                    $newData['menu'] = $this->request->getVar('menu', FILTER_SANITIZE_STRING);
+                    $updatedData['menu'] = NULL;
+                } else 
+                {
+                    $updatedData['menu'] = $this->request->getPost('menu', FILTER_SANITIZE_STRING);
                 }
-                $model->save($newData);
-                $session = session();
-                $session->setFlashdata('success', 'Mise à jour réussie');
-                return redirect()->to('update');
-            }
+                $model->save($updatedData);
+
+				session()->setFlashdata('success', 'Successfuly Updated');
+				return redirect()->to('/zone51/dashboard/update');
+			}
         }
 
-        $model = new PlatsModel();
-        $data['plats'] = $model->getMenus();
+        $data['plats'] = $model->findAll();
         return view('admin/update', $data);
     }
 
     public function delete() 
     {
-        return view('admin/delete');
+        if ($this->request->getMethod() == 'post') 
+        {
+            $model = new PlatsModel();
+            $model->where('id', $_POST['plat-id'])->delete();
+            session()->setFlashdata('success', 'Successfuly deleted');
+            return redirect()->to('/zone51/dashboard/update');
+        }
     }
 }

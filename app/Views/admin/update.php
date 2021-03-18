@@ -14,7 +14,7 @@
 <?php endif; ?>
 
 <?php foreach ($plats as $plat) { ?>
-  <form class="" action="<?= base_url('zone51/dashboard/update') ?>" method="post">
+    <form class="" action="" method="post">
         <div class="form-group">
             <label for="nom">Nom du plat :</label>
             <input type="nom" class="form-control" name="nom" id="nom" value='<?= esc($plat['nom'])?>'>
@@ -31,7 +31,11 @@
             <label for="menu">Prix du menu :</label>
             <input type="menu" class="form-control" name="menu" id="menu" value='<?= esc($plat['menu'])?>'>
         </div>
-        <button type="submit" class="btn btn-success">Valider</button>
+        <div class="form-group">
+            <input id="plat-id" name="plat-id" type="hidden" value="<?= esc($plat['id'])?>">
+        </div>
+        <button type="submit" formaction="<?= base_url('zone51/dashboard/update') ?>" class="btn btn-success">Mettre à jour</button>
+        <button type="submit" formaction="<?= base_url('zone51/dashboard/delete') ?>" class="btn btn-danger">Supprimer</button>
     </form>
 <?php }; ?>
 
