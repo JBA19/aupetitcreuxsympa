@@ -1,6 +1,8 @@
 <?php namespace App\Controllers;
 
 use App\Models\ContentModel;
+use App\Models\PlatsModel;
+
 
 class GlobalController extends BaseController
 {
@@ -12,9 +14,10 @@ class GlobalController extends BaseController
         throw new \CodeIgniter\Exceptions\PageNotFoundException($slug);
         }
 
-        $model = new ContentModel();
-        $data['titres'] = $model->getTitles($slug);
-        $data['plats'] = $model->getMenus();
+        $contentModel = new ContentModel();
+        $data['titres'] = $contentModel->getTitles($slug);
+        $platsModel = new PlatsModel();
+        $data['plats'] = $platsModel->findAll();
         // var_dump($data['plats']);
         echo view('templates/header', $data);
         echo view($slug);
