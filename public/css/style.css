@@ -57,12 +57,6 @@ nav a:hover {
   padding: 0;
 }
 
-#intro {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-
 #title {
   position: absolute;
   color: #ffffff;
@@ -116,8 +110,30 @@ footer p {
   margin: 0;
 }
 
+#z51 {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#z51:hover {
+  cursor: default;
+}
+
 /* STYLE MENUS */
 
 .table-responsive-md {
   padding: 0;
+}
+
+
+/* STYLE CAROUSEL */
+
+.carousel-indicators button {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+.carousel-indicators {
+  padding : 10px;
 }
