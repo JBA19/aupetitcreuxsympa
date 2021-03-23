@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class PlatsModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'plats';
+    protected $table                = 'dwjb_plats';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;

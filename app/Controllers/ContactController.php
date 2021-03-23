@@ -62,23 +62,18 @@ class ContactController extends BaseController
             }
             else 
             {
-                $data['validation'] = $this->validator;
-                echo view('templates/header');
-                echo view('contact', $data);
-                echo view('templates/footer');
+                return view('contact', [
+                    "validation" => $this->validator,
+                ]);
             }
         }
         else 
         {
-            echo view('templates/header');
-            echo view('contact', $data);
-            echo view('templates/footer');
+            return view('contact', $data);
         }
     }
 
     public function success() {
-        echo view('templates/header');
-        echo view('contact/send');
-        echo view('templates/footer');
+        return view('contact/send');
     }
 }

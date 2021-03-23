@@ -1,4 +1,8 @@
-<section class="contact container-fluid">
+<?= $this->extend("templates/app") ?>
+
+<?= $this->section("body") ?>
+
+<section id="contact" class="container-fluid">
     <h1 class='text-center'>Contact</h1>
         <?= form_open('ContactController'); ?>
         <div class="input-group">
@@ -54,4 +58,6 @@
             <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
         </div>
         <?= form_close(); ?>
-</section>    
+</section>
+
+<?= $this->endSection() ?>

@@ -1,7 +1,7 @@
 <?= $this->extend("admin/app") ?>
 
 <?= $this->section("body") ?>
-
+<section id="insertion">
     <?php if (session()->get('success')): ?>
     <div class="alert alert-success" role="alert">
         <?= session()->get('success'); ?>
@@ -43,5 +43,6 @@
             <button type="submit" class="btn btn-primary btn-block">Valider</button>
         </div>
     </form>
+</section>
 
 <?= $this->endSection() ?>

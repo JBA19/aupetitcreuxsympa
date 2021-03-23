@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class AdminModel extends Model
 {
 	protected $DBGroup              = 'default';
-	protected $table                = 'users';
+	protected $table                = 'dwjb_users';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;

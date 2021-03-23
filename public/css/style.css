@@ -18,6 +18,10 @@ body {
   flex-direction: column;
 }
 
+a {
+  color: #e4b95b;
+}
+
 /* STYLE NAVBAR */
 
 header {
@@ -64,7 +68,13 @@ nav a:hover {
 }
 
 #presentation,
-.contact {
+#plats,
+#contact,
+#legals,
+#dashboard,
+#insertion,
+#login,
+#maj {
   background-image: url("../images/banner.png");
   background-size: cover;
   background-position: center;

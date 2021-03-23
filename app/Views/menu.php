@@ -1,3 +1,7 @@
+<?= $this->extend("templates/app") ?>
+
+<?= $this->section("body") ?>
+<section id="plats">
   <div class="row justify-content-center text-center">
     <h1><?= esc($titres['titre1']) ?></h1>
     <div class="table-responsive-md col-lg-8 col-xs-12">
@@ -49,3 +53,6 @@
       </table>
     </div>
   </div>
+</section>
+
+<?= $this->endSection() ?>

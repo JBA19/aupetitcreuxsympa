@@ -19,8 +19,6 @@ class GlobalController extends BaseController
         $platsModel = new PlatsModel();
         $data['plats'] = $platsModel->findAll();
         // var_dump($data['plats']);
-        echo view('templates/header', $data);
-        echo view($slug);
-        echo view('templates/footer');
+        return view($slug, $data);
     }
 }

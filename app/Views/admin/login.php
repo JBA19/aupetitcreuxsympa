@@ -2,7 +2,7 @@
 
 <?= $this->section("body") ?>
 
-<div class="container" style="margin-top:20px;">
+<section id="login" class="container" style="margin-top:20px;">
     <div class="row">
         <div class="panel panel-primary">
             <h1 class="panel-heading">Connexion</h1>
@@ -28,6 +28,6 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <?= $this->endSection() ?>

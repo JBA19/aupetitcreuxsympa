@@ -2,14 +2,14 @@
 
 <?= $this->section("body") ?>
 
-<div class="container" style="margin-top:20px;">
+<section id="dashboard" class="container" style="margin-top:20px;">
     <div class="row">
         <div class="panel panel-primary">
-            <div class="panel-heading">Dashboard</div>
+            <h1 class="panel-heading">Tableau de bord</h1>
             <div class="panel-body">
-                <h1>Hello, <?= session()->get('name') ?></h1>
+                <h1>Bonjour, <?= session()->get('name') ?></h1>
             </div>
         </div>
     </div>
-</div>
+</section>
 <?= $this->endSection() ?>

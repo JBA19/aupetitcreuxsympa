@@ -59,53 +59,53 @@ class AdminController extends BaseController
         return true;
     }
 
-    public function register()
-    {
-        $data = [];
+    // public function register()
+    // {
+    //     $data = [];
 
-        if ($this->request->getMethod() == 'post') {
-            //let's do the validation here
-            $rules = [
-                'name' => 'required|min_length[3]|max_length[20]',
-                'phone_no' => 'required|min_length[9]|max_length[20]',
-                'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[tbl_users.email]',
-                'password' => 'required|min_length[8]|max_length[255]',
-                'password_confirm' => 'matches[password]',
-            ];
+    //     if ($this->request->getMethod() == 'post') {
+    //         //let's do the validation here
+    //         $rules = [
+    //             'name' => 'required|min_length[3]|max_length[20]',
+    //             'phone_no' => 'required|min_length[9]|max_length[20]',
+    //             'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[tbl_users.email]',
+    //             'password' => 'required|min_length[8]|max_length[255]',
+    //             'password_confirm' => 'matches[password]',
+    //         ];
 
-            if (!$this->validate($rules)) {
+    //         if (!$this->validate($rules)) {
 
-                return view('register', [
-                    "validation" => $this->validator,
-                ]);
-            } else {
-                $model = new AdminModel();
+    //             return view('register', [
+    //                 "validation" => $this->validator,
+    //             ]);
+    //         } else {
+    //             $model = new AdminModel();
 
-                $newData = [
-                    'name' => $this->request->getVar('name'),
-                    'phone_no' => $this->request->getVar('phone_no'),
-                    'email' => $this->request->getVar('email'),
-                    'password' => $this->request->getVar('password'),
-                ];
-                $model->save($newData);
-                $session = session();
-                $session->setFlashdata('success', 'Successful Registration');
-                return redirect()->to(base_url('admin/login'));
-            }
-        }
-        return view('register');
-    }
+    //             $newData = [
+    //                 'name' => $this->request->getVar('name'),
+    //                 'phone_no' => $this->request->getVar('phone_no'),
+    //                 'email' => $this->request->getVar('email'),
+    //                 'password' => $this->request->getVar('password'),
+    //             ];
+    //             $model->save($newData);
+    //             $session = session();
+    //             $session->setFlashdata('success', 'Successful Registration');
+    //             return redirect()->to(base_url('admin/login'));
+    //         }
+    //     }
+    //     return view('register');
+    // }
 
-    public function profile()
-    {
+    // public function profile()
+    // {
 
-        $data = [];
+    //     $data = [];
         
-        $model = new AdminModel();
+    //     $model = new AdminModel();
 
-        $data['user'] = $model->where('id', session()->get('id'))->first();
-        return view('profile', $data);
-    }
+    //     $data['user'] = $model->where('id', session()->get('id'))->first();
+    //     return view('profile', $data);
+    // }
 
     public function logout()
     {
