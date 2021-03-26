@@ -16,6 +16,7 @@ body {
   font-family: "Graviola-Regular", sans-serif;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 a {
@@ -25,7 +26,7 @@ a {
 /* STYLE NAVBAR */
 
 header {
-  background-color: #7a7676;
+  background-color: #474444;
 }
 
 .navbar-toggler-icon {
@@ -55,17 +56,17 @@ nav a:hover {
   font-size: 2em;
 }
 
-/* STYLE HOME+CONTACT */
+/* STYLE GLOBAL */
 
-#homeImg {
+/* #homeImg {
   padding: 0;
-}
+} */
 
-#title {
+/* #title {
   position: absolute;
   color: #ffffff;
   text-align: center;
-}
+} */
 
 #presentation,
 #plats,
@@ -74,13 +75,14 @@ nav a:hover {
 #dashboard,
 #insertion,
 #login,
-#maj {
+#maj,
+#sitemap {
   background-image: url("../images/banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 1.5em;
-  min-height: 70vh;
+  min-height: 80vh;
 }
 
 #presentation h3 {
@@ -100,6 +102,44 @@ nav a:hover {
 
 .input-group-text {
   background-color: #e4b95b;
+}
+
+/* STYLE SCROLL */
+
+.top-link {
+  transition: all 0.25s ease-in-out;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3em 3em 0;
+  border-radius: 50%;
+  padding: 0.25em;
+  width: 80px;
+  height: 80px;
+  background-color: #f8f8f8;
+}
+.top-link.show {
+  visibility: visible;
+  opacity: 1;
+}
+.top-link.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+.top-link svg {
+  fill: #000;
+  width: 24px;
+  height: 12px;
+}
+.top-link:hover {
+  background-color: #e8e8e8;
+}
+.top-link:hover svg {
+  fill: #000000;
 }
 
 /* STYLE FOOTER */

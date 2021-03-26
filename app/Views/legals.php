@@ -20,6 +20,7 @@
 
     <h3>Responsable éditorial</h3>
     <address>
+        <p>Au petit creux sympa</p>
         <p>4 Place du Monument</p>
         <p>19370 CHAMBERET</p>
         <p><a href="tel:+33768001562">+33(0)7 68 00 15 62</a></p>

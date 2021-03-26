@@ -35,9 +35,6 @@
                                         <a class="nav-link" href="<?= base_url('zone51/dashboard/update') ?>">update</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?= base_url('zone51/dashboard/delete') ?>">delete</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" href="<?= base_url('logout') ?>">Déconnexion</a>
                                     </li>
                                 </ul>

@@ -2,7 +2,11 @@
 
 <?= $this->section("body") ?>
 
+
 <section id="contact" class="container-fluid">
+    <div class="alert alert-danger text-center" role="alert">
+        <i class="fa fa-exclamation-circle fa-4x" aria-hidden="true"></i><h2>PAGE EN CONSTRUCTION / ENVOI INDISPONIBLE</h2>
+    </div>
     <h1 class='text-center'>Contact</h1>
         <?= form_open('ContactController'); ?>
         <div class="input-group">
@@ -55,7 +59,7 @@
             <?php endif; ?>
         </div>
         <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+            <button type="submit" class="btn btn-primary btn-block" disabled>Indisponible</button>
         </div>
         <?= form_close(); ?>
 </section>

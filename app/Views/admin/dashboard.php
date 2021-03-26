@@ -2,7 +2,7 @@
 
 <?= $this->section("body") ?>
 
-<section id="dashboard" class="container" style="margin-top:20px;">
+<section id="dashboard" class="container-fluid">
     <div class="row">
         <div class="panel panel-primary">
             <h1 class="panel-heading">Tableau de bord</h1>

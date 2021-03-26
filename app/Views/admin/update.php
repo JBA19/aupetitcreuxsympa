@@ -1,7 +1,7 @@
 <?= $this->extend("admin/app") ?>
 
 <?= $this->section("body") ?>
-<section id="maj">
+<section id="maj" class="container-fluid">
     <h1>MAJ des plats</h1>
     
     <?php if (session()->get('success')): ?>

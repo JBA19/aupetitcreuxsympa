@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <header>
+        <header id="header">
             <nav class="navbar navbar-expand-md flex-nowrap">
                 <div class="container-fluid row justify-content-between text-center">
                     <!-- <div class=""> -->
@@ -43,6 +43,8 @@
             </nav>
         </header>
         <?= $this->renderSection("body") ?>
+        <a class="top-link hide" href="" id="js-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg></a>       
         <footer class="container-fluid">
             <h5>Au petit creux sympa</h5>
             <address>
@@ -58,6 +60,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/ad6fd6db77.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url(); ?>/js/carousel.js"></script>
+        <script src="<?php echo base_url(); ?>/js/script.js"></script>
     </body>
 </html>
