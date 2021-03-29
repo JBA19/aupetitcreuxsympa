@@ -187,3 +187,9 @@ footer p {
 .carousel-indicators {
   padding : 10px;
 }
+
+
+#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+  height:400px;
+  align-self: center;
+}

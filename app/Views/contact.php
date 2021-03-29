@@ -64,4 +64,6 @@
         <?= form_close(); ?>
 </section>
 
+<div id="map" class="container-fluid"></div>
+
 <?= $this->endSection() ?>
