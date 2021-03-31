@@ -21,7 +21,7 @@ class DashboardController extends BaseController
             [
                 'nom' => 
                 [
-                    'rules' => 'required|is_unique[plats.nom]',
+                    'rules' => 'required|is_unique[dwjb_plats.nom]',
                     'errors' =>
                     [
                         'required' => 'Merci de renseigner le nom du plat.',
@@ -179,6 +179,22 @@ class DashboardController extends BaseController
 
         $data['plats'] = $model->findAll();
         return view('admin/update', $data);
+    }
+
+    public function confirm() 
+    {
+        if ($this->request->getMethod() == 'post') 
+        {
+            $model = new PlatsModel();
+
+            $deletedData = [
+                'numero' => $this->request->getPost('plat-id', FILTER_SANITIZE_STRING),
+                'nom' => $this->request->getPost('nom', FILTER_SANITIZE_STRING),
+            ];
+
+            return view('admin/confirm', $deletedData);
+
+        }
     }
 
     public function delete() 

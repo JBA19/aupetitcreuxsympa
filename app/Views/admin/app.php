@@ -29,10 +29,10 @@
                                         <a class="nav-link" href="<?= base_url('zone51/dashboard') ?>">Accueil</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?= base_url('zone51/dashboard/insert') ?>">Insert</a>
+                                        <a class="nav-link" href="<?= base_url('zone51/dashboard/insert') ?>">Ajouter un plat</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?= base_url('zone51/dashboard/update') ?>">update</a>
+                                        <a class="nav-link" href="<?= base_url('zone51/dashboard/update') ?>">Mettre à jour ou supprimer un plat</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="<?= base_url('logout') ?>">Déconnexion</a>

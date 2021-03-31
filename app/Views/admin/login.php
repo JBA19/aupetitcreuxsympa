@@ -23,7 +23,10 @@
                         <label for="password">Mot de passe</label>
                         <input type="password" class="form-control" name="password" id="password">
                     </div>
-                    <button type="submit" class="btn btn-success">Valider</button>
+                    <br>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Valider</button>
+                    </div>
                 </form>
             </div>
         </div>

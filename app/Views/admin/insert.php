@@ -10,7 +10,7 @@
     <?php if (isset($validation)): ?>
         <div class ="alert alert-danger" role="alert"><?= $validation->listErrors() ?></div>
     <?php endif; ?>
-
+    <h1>Ajouter un plat</h1>
     <form class="" action="<?= base_url('zone51/dashboard/insert') ?>" method="post">
         <div class="form-floating">
             <?= form_input('nom', set_value('nom') , ['placeholder' => 'Nom du plat', 'id' => 'nom', 'class' => 'form-control'], 'text'); ?>

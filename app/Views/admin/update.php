@@ -2,7 +2,6 @@
 
 <?= $this->section("body") ?>
 <section id="maj" class="container-fluid">
-    <h1>MAJ des plats</h1>
     
     <?php if (session()->get('success')): ?>
         <div class="alert alert-success" role="alert">
@@ -12,7 +11,8 @@
     <?php if (isset($validation)): ?>
         <div class ="alert alert-danger" role="alert"><?= $validation->listErrors() ?></div>
     <?php endif; ?>
-    
+        
+    <h1>Mettre à jour / supprimer les plats</h1>
     <?php foreach ($plats as $plat) { ?>
         <form class="" action="" method="post">
             <div class="form-group">
@@ -34,8 +34,11 @@
             <div class="form-group">
                 <input id="plat-id" name="plat-id" type="hidden" value="<?= esc($plat['id'])?>">
             </div>
-            <button type="submit" formaction="<?= base_url('zone51/dashboard/update') ?>" class="btn btn-success">Mettre à jour</button>
-            <button type="submit" formaction="<?= base_url('zone51/dashboard/delete') ?>" class="btn btn-danger">Supprimer</button>
+            <br>
+            <div class="form-group text-center">
+                <button type="submit" formaction="<?= base_url('zone51/dashboard/update') ?>" class="btn btn-success">Mettre à jour</button>
+                <button type="submit" formaction="<?= base_url('zone51/dashboard/confirm') ?>" class="btn btn-danger">Supprimer</button>
+            </div>
         </form>
     <?php }; ?>
 </section>
