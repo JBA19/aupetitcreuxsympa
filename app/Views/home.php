@@ -5,14 +5,19 @@
 <section class="slider">
   <div id="carouselCaption" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators gap-2">
-      <button type="button" data-bs-target="#carouselCaption" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselCaption" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselCaption" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <div class="pause-cycle-button  d-none d-md-block">
+      <button type="button" class="btn btn-warning btn-customized">
+        <i class="fas fa-pause"></i>
+      </button>
+    </div>
+      <button class="carouselButton active d-none d-md-block" type="button" data-bs-target="#carouselCaption" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+      <button class="carouselButton d-none d-md-block" type="button" data-bs-target="#carouselCaption" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button class="carouselButton d-none d-md-block" type="button" data-bs-target="#carouselCaption" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="3000">
         <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="..." loading="lazy">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption">
           <h4>
             <?= esc($titres['titre1']) ?>
           </h4>
@@ -23,7 +28,7 @@
       </div>
       <div class="carousel-item" data-bs-interval="3000">
         <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="..." loading="lazy">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption">
           <h4>
             <?= esc($titres['titre1']) ?>
           </h4>
@@ -34,7 +39,7 @@
       </div>
       <div class="carousel-item" data-bs-interval="3000">
         <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="..." loading="lazy">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption">
           <h4>
             <?= esc($titres['titre1']) ?>
           </h4>
@@ -52,7 +57,7 @@
     <?= esc($titres['titre3']) ?>
   </h3>
   <article class="row row-cols-2">
-    <img class="col-2 d-none d-lg-block" src="<?php echo base_url(); ?>/images/chef.png" alt="chef cuistot"
+    <img class="col-2 d-none d-md-block" src="<?php echo base_url(); ?>/images/chef.png" alt="chef cuistot"
       loading="lazy" />
     <div class="col-10">
       <h4>
@@ -94,7 +99,7 @@
         porttitor. Nulla id feugiat arcu.
       </p>
     </div>
-    <img class="col-2 d-none d-lg-block" src="<?php echo base_url(); ?>/images/cheffe.png" alt="cheffe cuistot"
+    <img class="col-2 d-none d-md-block" src="<?php echo base_url(); ?>/images/cheffe.png" alt="cheffe cuistot"
       loading="lazy" />
   </article>
 </section>

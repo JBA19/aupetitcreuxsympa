@@ -1,3 +1,29 @@
+// SCRIPT CAROUSEL
+
+var myCarousel = document.querySelector('#carouselCaption')
+var carousel = new bootstrap.Carousel(myCarousel, {
+  pause: 'false'
+});
+
+$('.btn-customized').on('click', function(){
+ 
+  if( ! $(this).hasClass('paused') ) {
+      $('.carousel').carousel('pause');
+      $('.btn-customized').toggleClass('paused');
+      $('.btn-customized i').removeClass('fa-pause').addClass('fa-play');
+      $(this).blur();
+  }
+  else {
+      $('.carousel').carousel('cycle');
+      $('.btn-customized').toggleClass('paused');
+      $('.btn-customized i').removeClass('fa-play').addClass('fa-pause');
+      $(this).blur();
+  }
+});
+
+
+// SCRIPT SCROLL TOP BUTTON
+
 // Set a variable for our button element.
 const scrollToTopButton = document.getElementById('js-top');
 
@@ -37,6 +63,8 @@ scrollToTopButton.onclick = function(e) {
   scrollToTop();
 }
 
+// SCRIPT MAP
+
 var lat = 45.5832236;
 var lon = 1.7206023;
 var macarte = null;
@@ -48,7 +76,6 @@ macarte = L.map('map', {
   zoom: 15,
   scrollWheelZoom: false
 });
-  // macarte = L.map('map').setView([lat, lon], 15, scrollWheelZoom: false);
 // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
   L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
   // Il est toujours bien de laisser le lien vers la source des données

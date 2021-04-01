@@ -172,7 +172,7 @@ class DashboardController extends BaseController
                 }
                 $model->save($updatedData);
 
-				session()->setFlashdata('success', 'Successfuly Updated');
+				session()->setFlashdata('success', 'Mise à jour réussie');
 				return redirect()->to('/zone51/dashboard/update');
 			}
         }
@@ -203,7 +203,7 @@ class DashboardController extends BaseController
         {
             $model = new PlatsModel();
             $model->where('id', $_POST['plat-id'])->delete();
-            session()->setFlashdata('success', 'Successfuly deleted');
+            session()->setFlashdata('success', 'Suppression effectuée');
             return redirect()->to('/zone51/dashboard/update');
         }
     }

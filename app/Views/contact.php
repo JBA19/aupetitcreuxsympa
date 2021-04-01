@@ -62,8 +62,8 @@
             <button type="submit" class="btn btn-primary btn-block" disabled>Indisponible</button>
         </div>
         <?= form_close(); ?>
+    <h2 class='text-center'>Où nous trouver :</h2>
+    <div id="map" class="container-fluid"></div>
 </section>
-
-<div id="map" class="container-fluid"></div>
 
 <?= $this->endSection() ?>
