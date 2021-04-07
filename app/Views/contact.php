@@ -62,8 +62,12 @@
             <button type="submit" class="btn btn-primary btn-block" disabled>Indisponible</button>
         </div>
         <?= form_close(); ?>
-    <h2 class='text-center'>Où nous trouver :</h2>
-    <div id="map" class="container-fluid"></div>
+        <div class="text-center">
+            <h2>Où nous trouver :</h2>
+            <p>Du jeudi au dimanche</p>
+            <p>de 12h à 14h et de 18h30 à 22h</p>
+        </div>
+        <div id="map" class="container-fluid"></div>
 </section>
 
 <?= $this->endSection() ?>
