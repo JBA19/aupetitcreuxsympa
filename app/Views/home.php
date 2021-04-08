@@ -4,7 +4,7 @@
 
 <section class="slider">
   <div id="carouselCaption" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators gap-2">
+    <div class="carousel-indicators align-items-center gap-2">
     <div class="pause-cycle-button  d-none d-md-block">
       <button type="button" class="btn btn-warning btn-customized">
         <i class="fas fa-pause"></i>

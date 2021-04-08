@@ -27,13 +27,13 @@
                             <div class="collapse navbar-collapse" id="navbarToggler">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?php echo base_url(); ?>"><span><img src="<?php echo base_url(); ?>/images/home.svg" alt=""></span><br> Accueil</a>
+                                        <a class="nav-link" href="<?php echo base_url(); ?>"><span class="d-none d-md-block"><img src="<?php echo base_url(); ?>/images/home.svg" alt=""></span><br> Accueil</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?php echo base_url(); ?>/menu"><span><img src="<?php echo base_url(); ?>/images/plat.svg" alt=""></span><br>Nos plats</a>
+                                        <a class="nav-link" href="<?php echo base_url(); ?>/menu"><span class="d-none d-md-block"><img src="<?php echo base_url(); ?>/images/plat.svg" alt=""></span><br>Nos plats</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?php echo base_url(); ?>/contact"><span><img src="<?php echo base_url(); ?>/images/email.svg" alt=""></span><br>Contact</a>
+                                        <a class="nav-link" href="<?php echo base_url(); ?>/contact"><span class="d-none d-md-block"><img src="<?php echo base_url(); ?>/images/email.svg" alt=""></span><br>Contact</a>
                                     </li>
                                 </ul>
                                 <a href="https://www.facebook.com/aupetitcreuxsympa/" target="_blank" rel="noopener noreferrer" class="col"><i class="fab fa-facebook"></i></a>
