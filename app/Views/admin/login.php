@@ -1,5 +1,6 @@
-<?= $this->extend("templates/app") ?>
-
+<!-- ON INDIQUE QUEL TEMPLATE S'APPLIQUE -->
+<?= $this->extend("admin/app") ?>
+<!-- DEBUT DE LA SECTION DANS LAQUELLE LE CONTENU VA S'INSERER -->
 <?= $this->section("body") ?>
 
 <section id="login" class="container-fluid">
@@ -7,6 +8,7 @@
         <div class="panel panel-primary">
             <h1 class="panel-heading">Connexion</h1>
             <div class="panel-body">
+<!-- BLOC QUI APPARAIT UNIQUEMENT APRES VALIDATION DU FORMULAIRE POUR AFFICHER LES MESSAGES D'ERREUR... -->
                 <?php if (isset($validation)) : ?>
                     <div class="col-12">
                         <div class="alert alert-danger" role="alert">
@@ -14,7 +16,8 @@
                         </div>
                     </div>
                 <?php endif; ?>
-                <form class="" action="<?= base_url('zone51/login') ?>" method="post">
+<!-- AFFICHAGE DU FORMULAIRE DE CONNEXION -->
+                <form action="<?= base_url('zone51/login') ?>" method="post">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email" id="email">

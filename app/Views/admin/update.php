@@ -1,13 +1,16 @@
+<!-- ON INDIQUE QUEL TEMPLATE S'APPLIQUE -->
 <?= $this->extend("admin/app") ?>
-
+<!-- DEBUT DE LA SECTION DANS LAQUELLE LE CONTENU VA S'INSERER -->
 <?= $this->section("body") ?>
+<!-- LISTING COMPLET DES PLATS VIA UNE BOUCLE -->
 <section id="maj" class="container-fluid">
-    
+<!-- BLOC QUI APPARAIT UNIQUEMENT APRES VALIDATION DU FORMULAIRE, SOIT POUR AFFICHER LE MESSAGE DE SUCCES... -->
     <?php if (session()->get('success')): ?>
         <div class="alert alert-success" role="alert">
             <?= session()->get('success'); ?>
         </div>
     <?php endif; ?>
+<!--... SOIT LES MESSAGES D'ERREUR -->
     <?php if (isset($validation)): ?>
         <div class ="alert alert-danger" role="alert"><?= $validation->listErrors() ?></div>
     <?php endif; ?>

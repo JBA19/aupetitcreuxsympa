@@ -1,6 +1,8 @@
+<!-- ON INDIQUE QUEL TEMPLATE S'APPLIQUE -->
 <?= $this->extend("templates/app") ?>
-
+<!-- DEBUT DE LA SECTION DANS LAQUELLE LE CONTENU VA S'INSERER -->
 <?= $this->section("body") ?>
+<!-- AFFICHAGE DES PLATS DANS UN TABLEAU -->
 <section id="plats">
   <div class="row justify-content-center text-center">
     <h1><?= esc($titres['titre1']) ?></h1>
@@ -14,7 +16,7 @@
           </tr>
         </thead>
         <tbody class="align-middle">
-        <!-- PLATS PERMANENTS -->
+<!-- BOUCLE AFFICHANT LES PLATS PERMANENTS -->
           <?php foreach ($plats as $plat) { 
             if (!empty($plat['prix']) && $plat['commande'] == 0) 
               {?>

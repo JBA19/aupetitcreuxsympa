@@ -1,9 +1,11 @@
+<!-- ON INDIQUE QUEL TEMPLATE S'APPLIQUE -->
 <?= $this->extend("templates/app") ?>
-
+<!-- DEBUT DE LA SECTION DANS LAQUELLE LE CONTENU VA S'INSERER -->
 <?= $this->section("body") ?>
-
+<!-- PARTIE CAROUSEL 
+A REMPLACER PAR UNE PHOTO, PAS ENCORE DEFINIE-->
 <section class="slider">
-  <div id="carouselCaption" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselCaption" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
     <div class="carousel-indicators align-items-center gap-2">
     <div class="pause-cycle-button  d-none d-md-block">
       <button type="button" class="btn btn-warning btn-customized">
@@ -16,7 +18,18 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="3000">
-        <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="..." loading="lazy">
+        <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="photo d'un plateau repas avec viande et légumes">
+        <div class="carousel-caption">
+          <h1>
+            <?= esc($titres['titre1']) ?>
+          </h1>
+          <p>
+            <?= esc($titres['titre2']) ?>
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="photo d'un plateau repas avec viande et légumes">
         <div class="carousel-caption">
           <h4>
             <?= esc($titres['titre1']) ?>
@@ -27,18 +40,7 @@
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="3000">
-        <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="..." loading="lazy">
-        <div class="carousel-caption">
-          <h4>
-            <?= esc($titres['titre1']) ?>
-          </h4>
-          <p>
-            <?= esc($titres['titre2']) ?>
-          </p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="..." loading="lazy">
+        <img src="<?php echo base_url(); ?>/images/background.jpg" class="d-block w-100" alt="photo d'un plateau repas avec viande et légumes">
         <div class="carousel-caption">
           <h4>
             <?= esc($titres['titre1']) ?>
@@ -51,14 +53,15 @@
     </div>
   </div>
 </section>
-
+<!-- PARTIE PRESENTATION DES CUISINIERS
+CONTENU NON DEFINI -->
 <section class="col" id="presentation">
   <h3>
     <?= esc($titres['titre3']) ?>
   </h3>
   <article class="row row-cols-2">
     <img class="col-2 d-none d-md-block" src="<?php echo base_url(); ?>/images/chef.png" alt="chef cuistot"
-      loading="lazy" />
+      />
     <div class="col-10">
       <h4>
         <?= esc($titres['titre4']) ?>
@@ -100,15 +103,15 @@
       </p>
     </div>
     <img class="col-2 d-none d-md-block" src="<?php echo base_url(); ?>/images/cheffe.png" alt="cheffe cuistot"
-      loading="lazy" />
+      />
   </article>
   <div class="text-center">
     <h2>Où nous trouver :</h2>
     <p>Du jeudi au dimanche</p>
     <p>de 12h à 14h et de 18h30 à 22h</p>
   </div>
-  <div id="map" class="container-fluid"></div>
-
+<!-- PARTIE MAP -->
+  <div id="macarte"></div>
 </section>
 
 <?= $this->endSection() ?>

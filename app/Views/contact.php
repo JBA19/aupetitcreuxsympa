@@ -1,8 +1,10 @@
+<!-- ON INDIQUE QUEL TEMPLATE S'APPLIQUE -->
 <?= $this->extend("templates/app") ?>
-
+<!-- DEBUT DE LA SECTION DANS LAQUELLE LE CONTENU VA S'INSERER -->
 <?= $this->section("body") ?>
-
-
+<!-- FORMULAIRE DE CONTACT
+LES MESSAGES D'ERREUR SONT INSERES SOUS CHAQUE INPUT
+ON RECUPERE LES CHAMPS REMPLI PAR L'UTILISATEUR EN CAS DE RETOUR SUR LE FORMULAIRE -->
 <section id="contact" class="container-fluid">
     <h1 class='text-center'>Contact</h1>
         <?= form_open('ContactController'); ?>
@@ -58,7 +60,7 @@
         <div class="form-group text-center">
             <button type="submit" class="btn btn-primary btn-block" disabled>Indisponible</button>
         </div>
-        <p><em>Les champs précédés d'une étoile sont obligatoires.</em></p>
+        <p><em>*Les champs précédés d'une étoile sont obligatoires.</em></p>
         <?= form_close(); ?>
         <div class="container-fluid alert alert-danger text-center w-75" role="alert">
             <i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i><h2>PAGE EN CONSTRUCTION / ENVOI INDISPONIBLE</h2>
@@ -68,7 +70,8 @@
             <p>Du jeudi au dimanche</p>
             <p>de 12h à 14h et de 18h30 à 22h</p>
         </div>
-        <div id="map" class="container-fluid"></div>
+<!-- PARTIE MAP -->
+        <div id="macarte"></div>
 </section>
 
 <?= $this->endSection() ?>

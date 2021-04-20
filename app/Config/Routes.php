@@ -34,16 +34,18 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'GlobalController::view/home');
-// $routes->match(['get', 'post'], 'register', 'AdminController::register', ['filter' => 'noauth']);
-// $routes->get('profile', 'AdminController::profile', ['filter' => 'auth']);
 $routes->match(['get', 'post'], 'zone51/login', 'AdminController::login', ['filter' => 'noauth']);
 $routes->get('zone51/dashboard', 'DashboardController::index', ['filter' => 'auth']);
-$routes->match(['get', 'post'], 'zone51/dashboard/(:any)', 'DashboardController::$1', ['filter' => 'auth']);
+$routes->match(['get', 'post'], 'zone51/dashboard/insert', 'DashboardController::insert', ['filter' => 'auth']);
+$routes->match(['get', 'post'], 'zone51/dashboard/update', 'DashboardController::update', ['filter' => 'auth']);
+$routes->match(['get', 'post'], 'zone51/dashboard/confirm', 'DashboardController::confirm', ['filter' => 'auth']);
+$routes->match(['get', 'post'], 'zone51/dashboard/delete', 'DashboardController::delete', ['filter' => 'auth']);
 $routes->get('logout', 'AdminController::logout');
-
 $routes->get('/contact', 'ContactController::index');
 $routes->get('/contact/success', 'ContactController::success');
 $routes->get('(:any)', 'GlobalController::view/$1');
+// $routes->match(['get', 'post'], 'register', 'AdminController::register', ['filter' => 'noauth']);
+// $routes->get('profile', 'AdminController::profile', ['filter' => 'auth']);
 
 /**
  * --------------------------------------------------------------------

@@ -1,17 +1,23 @@
+<!-- ON INDIQUE QUEL TEMPLATE S'APPLIQUE -->
 <?= $this->extend("admin/app") ?>
-
+<!-- DEBUT DE LA SECTION DANS LAQUELLE LE CONTENU VA S'INSERER -->
 <?= $this->section("body") ?>
+
 <section id="insertion" class="container-fluid">
+<!-- BLOC QUI APPARAIT UNIQUEMENT APRES VALIDATION DU FORMULAIRE, SOIT POUR AFFICHER LE MESSAGE DE SUCCES... -->
     <?php if (session()->get('success')): ?>
     <div class="alert alert-success" role="alert">
         <?= session()->get('success'); ?>
     </div>
     <?php endif; ?>
+<!-- ...OU LES MESSAGES D'ERREUR -->
     <?php if (isset($validation)): ?>
         <div class ="alert alert-danger" role="alert"><?= $validation->listErrors() ?></div>
     <?php endif; ?>
+
+<!-- AFFICHAGE DU FORMULAIRE D'AJOUT DE PLAT -->
     <h1>Ajouter un plat</h1>
-    <form class="" action="<?= base_url('zone51/dashboard/insert') ?>" method="post">
+    <form action="<?= base_url('zone51/dashboard/insert') ?>" method="post">
         <div class="form-floating">
             <?= form_input('nom', set_value('nom') , ['placeholder' => 'Nom du plat', 'id' => 'nom', 'class' => 'form-control'], 'text'); ?>
             <?= form_label('Nom du plat :', 'nom', ['for' => 'nom']); ?>
