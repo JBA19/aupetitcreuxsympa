@@ -1,5 +1,5 @@
 <!-- ON INDIQUE QUEL TEMPLATE S'APPLIQUE -->
-<?= $this->extend("admin/app") ?>
+<?= $this->extend("templates/app") ?>
 <!-- DEBUT DE LA SECTION DANS LAQUELLE LE CONTENU VA S'INSERER -->
 <?= $this->section("body") ?>
 
